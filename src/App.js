@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './components/Card';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    fetch(`https://api.thecatapi.com/v1/images/search`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        return;
+      });
+  }, []);
+
+  console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-wrapper'>
+      <div className='app-header'>
+        <Card data={data}/>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
