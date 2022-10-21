@@ -3,16 +3,15 @@ import './App.css';
 import Card from './components/Card';
 
 const App = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.thecatapi.com/v1/images/search`)
+    fetch(`https://api.thecatapi.com/v1/images/search?limit=8`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setData(data);
-        return;
       });
   }, []);
 
@@ -21,7 +20,9 @@ const App = () => {
   return (
     <div className='app-wrapper'>
       <div className='app-header'>
-        <Card data={data}/>
+        {data.map((data) => {
+          return <Card data={data} key={data.id} />;
+        })}
       </div>
     </div>
   );

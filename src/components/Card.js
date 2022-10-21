@@ -1,11 +1,16 @@
 import './Card.css';
+import LikeButton from './LikeButton';
 
-const Card = () => {
+const Card = (props) => {
   return (
     <div className='card-wrapper'>
-      <img src='http://placekitten.com/300/400' alt='Kitty' />
-      <p>Some kitty!</p>
-      <button>Like</button>
+      <div className='card-img'>
+        <img src={props.data.url} alt='Kitty' />
+      </div>
+      <div className='card-info'>
+        <p>Some kitty!</p>
+        <LikeButton />
+      </div>
     </div>
   );
 };
