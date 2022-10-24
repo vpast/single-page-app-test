@@ -2,7 +2,7 @@
   font-size:xxx-large;
 }
 
-ion-icon.active{
+ ion-icon.active{
   animation:like 0.5s 1;
   fill:red;
   stroke-width:0;
@@ -10,7 +10,9 @@ ion-icon.active{
 ion-icon{
   fill:transparent;
   stroke-width:30;
+  color: #eee;
   transition:all 0.5s;
+  cursor: pointer;
 }
 
 

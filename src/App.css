@@ -10,3 +10,9 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.checkBox {
+  margin-top: 6rem;
+  color: #eee;
+  font-weight: 700;
+}

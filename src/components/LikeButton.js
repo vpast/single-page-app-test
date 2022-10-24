@@ -1,13 +1,18 @@
-import './LikeButton.css'
+import './LikeButton.css';
 
-const LikeButton = () => {
-
+const LikeButton = (props) => {
   const likeClickHandler = (event) => {
-    event.target.classList.toggle('active');
-  }
+    if (event.target.classList.contains('active')) {
+      event.target.classList.remove('active');
+      props.onNotLike();
+    } else {
+      event.target.classList.add('active');
+      props.onLike();
+    }
+  };
 
   return (
-    <div className='large-font text-center top-20'>
+    <div className='large-font text-center like'>
       <ion-icon onClick={likeClickHandler} name='heart'>
         <div className='red-bg'></div>
       </ion-icon>

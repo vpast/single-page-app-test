@@ -10,6 +10,7 @@
 .card-img img {
   width: 200px;
   height: 300px;
+  border-radius: 20px;
 }
 
 .card-info {
@@ -19,5 +20,10 @@
 }
 
 .card-info p {
+  color: #eee;
   font-weight: 600;
+}
+
+.card-button-wrapper {
+  display: flex;
 }
